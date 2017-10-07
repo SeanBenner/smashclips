@@ -16,7 +16,7 @@ This is because they are using the third controller port on the console.  To sol
 
 Now that the search area is defined, there are a few preprocessing steps that must be taken to make the numbers readable by computer.  First is to convert the image to grayscale, next I applied a blur to the image to try to reduce any noise.  Next I binarized the image by setting all pixels to black or white depending on its intensity, and finally I applied a flood fill around the perimeter to fill in any gaps.  When it all works out nicely, it looks like the final frame below.
 
-![Fig. 3:  Preprocessing steps](images/preprocessing_steps.jpg?raw=true)
+![Fig. 3:  Preprocessing steps](images/processing_steps.jpg?raw=true)
 
 Once the video is processed, the frames and their OCR results are put into a Pandas dataframe.  I make a new column that measures the amount the health has changed since the last frame.  Most of the time this value is 0, but when it isn't, it's inferred that the character got hit.  To create a highlight, then, I use the algorithm below that looks for frequent occurrences of the health changing.  
 
